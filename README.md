@@ -1,5 +1,9 @@
 # ZhuaTech MES｜知华科技制造执行系统社区源码版
 
+## 企业级增强：生产工单投产治理
+
+新增 BOM、工艺、物料、设备、人员、检验、工程变更和关键工序安全许可联合门禁，详见 [投产治理](docs/ENTERPRISE_PRODUCTION_RELEASE.md)。
+
 > 把生产计划变成现场动作，把每次报工、检验与异常沉淀为可以追溯的制造事实。
 
 [![Java](https://img.shields.io/badge/Java-21-2e6f65.svg)](backend/pom.xml)
