@@ -1,5 +1,9 @@
 # ZhuaTech MES｜知华科技制造执行系统社区源码版
 
+## 企业级增强：生产工单变更治理
+
+新增 BOM/工艺版本、WIP、追溯、工程质量审批、EHS、电子签名、现场通知和回滚治理，详见[生产工单变更治理](docs/ENTERPRISE_WORK_ORDER_CHANGE.md)。
+
 ## 企业级增强：生产工单投产治理
 
 新增 BOM、工艺、物料、设备、人员、检验、工程变更和关键工序安全许可联合门禁，详见 [投产治理](docs/ENTERPRISE_PRODUCTION_RELEASE.md)。
