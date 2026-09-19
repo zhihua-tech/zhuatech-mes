@@ -11,11 +11,20 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 @Service
 public class AiDefectRootCauseService {
     private final OpenAiCompatibleGateway gateway;
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public AiDefectRootCauseService(OpenAiCompatibleGateway gateway) { this.gateway = gateway; }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public Result analyze(Request request) {
         int risk = 10;
         List<String> causes = new ArrayList<>();
@@ -46,10 +55,16 @@ public class AiDefectRootCauseService {
             metadata.provider(), metadata.model());
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record Request(@NotBlank String defectType, @DecimalMin("0") BigDecimal defectRate,
                           @DecimalMin("0.01") BigDecimal baselineDefectRate, @NotNull BigDecimal temperatureDeviation,
                           @NotNull BigDecimal vibrationDeviation, @Min(0) int toolingAgeHours,
                           @NotNull Boolean operatorChanged, @NotNull Boolean materialBatchChanged) {}
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record Result(int riskScore, String status, List<String> likelyCauses, List<String> containmentActions,
                          String aiExplanation, String aiMode, String provider, String model) {}
 }

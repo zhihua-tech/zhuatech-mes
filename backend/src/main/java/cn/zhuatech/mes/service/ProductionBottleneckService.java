@@ -12,8 +12,14 @@ import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 @Service
 public class ProductionBottleneckService {
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public Result analyze(Request request) {
         BigDecimal cycleVarianceRate = request.actualCycleSeconds().subtract(request.standardCycleSeconds())
             .divide(request.standardCycleSeconds(), 4, RoundingMode.HALF_UP);
@@ -36,11 +42,17 @@ public class ProductionBottleneckService {
         return new Result(request.workCenterCode(), cycleVarianceRate, score, level, actions);
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record Request(@NotBlank String workCenterCode,
                           @DecimalMin("0.01") BigDecimal standardCycleSeconds,
                           @DecimalMin("0.01") BigDecimal actualCycleSeconds,
                           @Min(0) int queueJobs, @Min(0) int downtimeMinutes,
                           @Min(0) @Max(100) int utilizationRate) {}
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record Result(String workCenterCode, BigDecimal cycleVarianceRate,
                          int bottleneckScore, String level, List<String> actions) {}
 }

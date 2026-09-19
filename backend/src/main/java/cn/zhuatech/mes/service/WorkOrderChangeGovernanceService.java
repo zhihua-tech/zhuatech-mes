@@ -1,8 +1,14 @@
 /* Copyright 2026 上海如静知华信息科技有限公司 · https://www.zhuatech.cn/ */
 package cn.zhuatech.mes.service;
 import jakarta.validation.constraints.*;import org.springframework.stereotype.Service;import java.util.*;
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 @Service
 public class WorkOrderChangeGovernanceService{
+ /**
+  * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+  */
  public Assessment assess(Request r){
   List<String> blockers=new ArrayList<>();List<String> actions=new ArrayList<>();
   if(!r.releasedBaselineExists())blockers.add("工单缺少已发布基线");
@@ -24,12 +30,24 @@ public class WorkOrderChangeGovernanceService{
   String route=risk==RiskLevel.HIGH?"工程→质量→生产→EHS/工厂负责人":"工程→质量→生产";
   return new Assessment(r.changeNo(),decision,risk,route,List.copyOf(blockers),List.copyOf(actions));
  }
+ /**
+  * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+  */
  public record Request(@NotBlank String changeNo,@NotBlank String requesterId,@NotBlank String approverId,
   boolean releasedBaselineExists,boolean bomAndRoutingRevisionValid,boolean wipImpactAssessed,
   boolean materialTraceabilityPreserved,boolean engineeringApproved,boolean qualityApproved,
   boolean capacityAndScheduleChecked,boolean safetyCritical,boolean ehsApproved,boolean hasActiveWip,
   boolean electronicSignatureComplete,boolean effectiveTimeScheduled,boolean operatorNotificationPlanned,
   boolean rollbackPlanReady,boolean auditEvidenceAttached){}
+ /**
+  * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+  */
  public record Assessment(String changeNo,Decision decision,RiskLevel riskLevel,String approvalRoute,List<String> blockers,List<String> actions){}
- public enum Decision{RELEASE_CHANGE,REVIEW,BLOCKED}public enum RiskLevel{NORMAL,HIGH}
+ /**
+  * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+  */
+ public enum Decision{RELEASE_CHANGE,REVIEW,BLOCKED}/**
+                                                     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+                                                     */
+public enum RiskLevel{NORMAL,HIGH}
 }

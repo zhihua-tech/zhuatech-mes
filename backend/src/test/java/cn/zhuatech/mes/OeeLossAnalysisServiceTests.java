@@ -7,9 +7,15 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 class OeeLossAnalysisServiceTests {
     private final OeeLossAnalysisService service = new OeeLossAnalysisService();
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @Test
     void identifiesPerformanceAsLargestLoss() {
         var result = service.analyze(new OeeLossAnalysisService.Request("WC-01", .92, .70, .98, 480));
@@ -20,6 +26,9 @@ class OeeLossAnalysisServiceTests {
         assertTrue(result.recoverableMinutesToWorldClass() > 100);
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @Test
     void recognizesStableWorldClassOperation() {
         var result = service.analyze(new OeeLossAnalysisService.Request("WC-02", .97, .94, .97, 480));

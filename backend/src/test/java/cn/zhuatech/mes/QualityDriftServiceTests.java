@@ -6,9 +6,15 @@ import org.junit.jupiter.api.Test;
 import java.math.BigDecimal;
 import static org.assertj.core.api.Assertions.assertThat;
 
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 class QualityDriftServiceTests {
     private final QualityDriftService service = new QualityDriftService();
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @Test void stopsOnCompoundQualityDrift() {
         var result = service.detect(new QualityDriftService.Request("WC-01", new BigDecimal("98.5"), new BigDecimal("88"), 5,
             new BigDecimal("96"), new BigDecimal("8"), 15));
@@ -16,6 +22,9 @@ class QualityDriftServiceTests {
         assertThat(result.actions()).hasSize(4);
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @Test void continuesStableProcess() {
         var result = service.detect(new QualityDriftService.Request("WC-02", new BigDecimal("98"), new BigDecimal("97.5"), 0,
             new BigDecimal("50"), new BigDecimal("1"), 50));

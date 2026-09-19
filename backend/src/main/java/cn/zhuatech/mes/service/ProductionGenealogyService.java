@@ -15,9 +15,16 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-/** 在成品批次入账前校验工单、BOM 与投入物料批次谱系。 */
+/**
+ * 在成品批次入账前校验工单、BOM 与投入物料批次谱系。
+ *
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 @Service
 public class ProductionGenealogyService {
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public Assessment assess(Request request) {
         List<String> blockers = new ArrayList<>();
         List<String> actions = new ArrayList<>();
@@ -53,6 +60,9 @@ public class ProductionGenealogyService {
                 request.materialLots().size(), List.copyOf(blockers), List.copyOf(actions));
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record Request(@NotBlank String genealogyId, @NotBlank String workOrderNo,
                           @NotBlank String outputLotNo,
                           @NotNull @DecimalMin("0.0001") BigDecimal producedQuantity,
@@ -63,6 +73,9 @@ public class ProductionGenealogyService {
                           boolean downstreamLabelReady,
                           @NotEmpty List<@Valid MaterialLot> materialLots) {}
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record MaterialLot(@NotBlank String materialCode, @NotBlank String lotNo,
                               @NotNull @DecimalMin("0.0001") BigDecimal bomQuantity,
                               @NotNull @DecimalMin("0.0001") BigDecimal consumedQuantity,
@@ -71,8 +84,14 @@ public class ProductionGenealogyService {
                               boolean traceCodeCaptured, boolean criticalMaterial,
                               boolean supplierLotCaptured) {}
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record Assessment(String genealogyId, String outputLotNo, Decision decision,
                              int inputLotCount, List<String> blockers, List<String> actions) {}
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public enum Decision { RECORD, REVIEW, BLOCKED }
 }

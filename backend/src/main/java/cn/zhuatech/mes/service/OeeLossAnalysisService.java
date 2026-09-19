@@ -10,8 +10,14 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 @Service
 public class OeeLossAnalysisService {
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public Result analyze(Request request) {
         double oee = round(request.availability() * request.performance() * request.quality() * 100);
         String largestLoss = request.availability() <= request.performance() && request.availability() <= request.quality()
@@ -26,16 +32,25 @@ public class OeeLossAnalysisService {
         return new Result(request.workCenterCode(), oee, largestLoss, recoverableMinutes, status, actions);
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     private double round(double value) {
         return Math.round(value * 100D) / 100D;
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record Request(@NotBlank String workCenterCode,
                           @DecimalMin("0") @DecimalMax("1") double availability,
                           @DecimalMin("0") @DecimalMax("1") double performance,
                           @DecimalMin("0") @DecimalMax("1") double quality,
                           @Min(1) int plannedMinutes) {}
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record Result(String workCenterCode, double oeePercent, String largestLoss,
                          int recoverableMinutesToWorldClass, String status, List<String> actions) {}
 }

@@ -10,8 +10,14 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 @Service
 public class QualityDriftService {
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public Result detect(Request request) {
         BigDecimal passRateDrop = request.baselinePassRate().subtract(request.currentPassRate()).max(BigDecimal.ZERO);
         int score = Math.min(40, passRateDrop.multiply(BigDecimal.valueOf(4)).intValue());
@@ -32,6 +38,9 @@ public class QualityDriftService {
         return new Result(request.workCenterCode(), passRateDrop, score, decision, actions);
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record Request(@NotBlank String workCenterCode,
                           @DecimalMin("0") @DecimalMax("100") BigDecimal baselinePassRate,
                           @DecimalMin("0") @DecimalMax("100") BigDecimal currentPassRate,
@@ -39,6 +48,9 @@ public class QualityDriftService {
                           @DecimalMin("0") @DecimalMax("100") BigDecimal toolLifeUsedPercent,
                           @DecimalMin("0") BigDecimal processParameterDeviationPercent,
                           @Min(1) int sampleSize) {}
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record Result(String workCenterCode, BigDecimal passRateDrop, int driftScore,
                          String decision, List<String> actions) {}
 }

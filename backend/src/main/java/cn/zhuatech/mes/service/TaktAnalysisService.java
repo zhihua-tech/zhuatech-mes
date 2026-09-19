@@ -10,8 +10,14 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 @Service
 public class TaktAnalysisService {
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public Result analyze(Request request) {
         double targetTakt = request.availableMinutes() * 60.0 / request.demandQty();
         double effectiveMinutes = Math.max(1, request.availableMinutes() - request.downtimeMinutes());
@@ -26,12 +32,21 @@ public class TaktAnalysisService {
             round(gapPercent), status, actions);
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     private double round(double value) { return Math.round(value * 100.0) / 100.0; }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record Request(@NotBlank String orderNo, @Positive int demandQty,
                           @Positive int availableMinutes,
                           @DecimalMin("0") double actualCycleSeconds,
                           @Min(0) int downtimeMinutes) {}
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record Result(String orderNo, double targetTaktSeconds, double effectiveTaktSeconds,
                          double gapPercent, String status, List<String> actions) {}
 }
