@@ -1,5 +1,9 @@
 # ZhuaTech MES｜知华科技制造执行系统社区源码版
 
+## 企业级增强：不合格品处置治理
+
+新增隔离、遏制、追溯、材料评审、客户让步、返工/报废/退货授权、库存移动和电子签名检查，详见[企业级不合格品处置治理](docs/ENTERPRISE_NONCONFORMANCE_DISPOSITION.md)。
+
 ## 企业级增强：生产工单变更治理
 
 新增 BOM/工艺版本、WIP、追溯、工程质量审批、EHS、电子签名、现场通知和回滚治理，详见[生产工单变更治理](docs/ENTERPRISE_WORK_ORDER_CHANGE.md)。
